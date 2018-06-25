@@ -2,7 +2,7 @@
 <html>
  <head>
    <meta charset="utf-8">
-   <title>Formulario para agregar libros</title>
+   <title>Formulario para agregar libros | {{config('app.name')}}</title>
  </head>
  <body>
 
@@ -28,10 +28,27 @@
             <label for="isbn">ISBN</label>
             <input type="text" name="isbn" value="{{old('isbn')}}">
         </div>
+        <div>
+            <label for="autor">Autor</label>
+            <select name="author_id" id="authors">
+                @foreach ($authors as $author)
+                <option value="{{$author->id}}">{{$author->name}} {{$author->last_name}}</option>
+                @endforeach
+            </select>
+        </div>
+        <div>
+            <label for="category">Categoría</label>
+            <select name="category_id" id="categories">
+                @foreach ($categories as $category)
+                <option value="{{$category->id}}">{{$category->name}}</option>
+                @endforeach
+            </select>
+        </div>
         <input type="submit" value="Agregar libro"/>
     </form>
 </body>
 </html>
+
 @if (count($errors))
  <ul>
    @foreach ($errors->all() as $error)

@@ -7,10 +7,14 @@
     <title>Categorías</title>
 </head>
 <body>
-    <ul>
-        @foreach($categories as $category)
-        <li>{{$category->name}}</li>
-        @endforeach
-    </ul>
+    <table>
+        <tr>
+        <th>Nombre</th>
+        </tr>
+        <tr>
+        <td><a href="/categories/{{$category->id}}">{{$category->name}}</a></td> 
+        <td><a href="/categories/{{$category->id}}/edit">Editar</a></td>
+        </tr>
+    </table> 
 </body>
 </html>

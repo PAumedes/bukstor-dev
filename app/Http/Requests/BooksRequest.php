@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use App\Book;
 
 class BooksRequest extends FormRequest
 {
@@ -13,7 +14,7 @@ class BooksRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,13 +24,42 @@ class BooksRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'name' => 'required|string',
-            'cost' => 'required|numeric',
-            'price' => 'required|numeric',
-            'description' => 'required',
-            'isbn' => 'required|unique:books',
-        ];
+        $book = Book::where('isbn', $this->isbn)->first();
+
+        switch($this->method())
+        {
+            case 'GET':
+            case 'DELETE':
+            {
+                return [];
+            }
+            case 'POST':
+            {
+                return [
+                    'name' => 'required|string',
+                    'cost' => 'required|numeric',
+                    'price' => 'required|numeric',
+                    'description' => 'required',
+                    'isbn' => 'required|unique:books,isbn',
+                    'author_id' => 'required|numeric',
+                    'category_id' => 'required|numeric',
+                ];
+            }
+            case 'PUT':
+            case 'PATCH':
+            {
+                return [
+                    'name' => 'required|string',
+                    'cost' => 'required|numeric',
+                    'price' => 'required|numeric',
+                    'description' => 'required',
+                    'isbn' => 'required|unique:books,isbn,' . $book->id,
+                    'author_id' => 'required|numeric',
+                    'category_id' => 'required|numeric',
+                ];
+            }
+            default:break;
+        }
     }
     public function messages()
     {

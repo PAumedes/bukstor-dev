@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use App\Category;
 
 class CategoriesRequest extends FormRequest
 {
@@ -13,7 +14,7 @@ class CategoriesRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +25,14 @@ class CategoriesRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required|string|unique:categories',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'name.required' => 'porfavor categoria',
         ];
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use App\Author;
 
 class AuthorsRequest extends FormRequest
 {
@@ -13,7 +14,7 @@ class AuthorsRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,8 +24,19 @@ class AuthorsRequest extends FormRequest
      */
     public function rules()
     {
+        $id = Author::where('isbn', $this->isbn)->first();
         return [
-            //
+            'name' => 'required|string',
+            'last_name' => 'required|strings',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'name.required' => 'porfavor autor',
+            'last_name.required' => 'porfavor autor',
+            
         ];
     }
 }

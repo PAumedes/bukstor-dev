@@ -7,10 +7,25 @@
     <title>Autores</title>
 </head>
 <body>
-    <ul>
-        @foreach($authors as $author)
-        <li>{{$author->name}} {{$author->last_name}}</li>
-        @endforeach
-    </ul>
+    <table>
+    <tr>
+      <th>Nombre</th>
+      <th>Apellido</th>
+    </tr>
+    @foreach($authors as $author)
+    <tr>
+    <td><a href="/authors/{{$author->id}}">{{$author->name}}</a></td> 
+    <td>{{$author->last_name}}</td> 
+      <td><a href="/authors/{{$author->id}}/edit">Editar</a></td>
+      <td>
+        <form action="/authors/{{ $author->id }}" method="post">
+          @csrf
+          {{ method_field('DELETE') }}
+          <button class="btn btn-default" type="submit">Borrar</button>
+        </form>
+      </td>
+    </tr>
+    @endforeach
+  </table>
 </body>
 </html>

@@ -7,10 +7,23 @@
     <title>Categorías</title>
 </head>
 <body>
-    <ul>
-        @foreach($categories as $category)
-        <li>{{$category->name}}</li>
-        @endforeach
-    </ul>
+    <table>
+    <tr>
+      <th>Nombre</th>
+    </tr>
+    @foreach($categories as $category)
+    <tr>
+    <td><a href="/categories/{{$category->id}}">{{$category->name}}</a></td> 
+    <td><a href="/categories/{{$category->id}}/edit">Editar</a></td>
+    <td>
+        <form action="/categories/{{ $category->id }}" method="post">
+          @csrf
+          {{ method_field('DELETE') }}
+          <button class="btn btn-default" type="submit">Borrar</button>
+        </form>
+    </td>
+    </tr>
+    @endforeach
+  </table>
 </body>
 </html>

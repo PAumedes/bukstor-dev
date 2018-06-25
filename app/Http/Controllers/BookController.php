@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Validator;
 use App\Book;
+use App\Category;
+use App\Author;
 use App\Http\Requests\BooksRequest;
 
 class BookController extends Controller
@@ -14,12 +16,14 @@ class BookController extends Controller
         $books = Book::all();
         return view('books.index', compact('books'));
     }
-
+    
     public function create()
     {
-        return view('books.create');
+        $authors = Author::all();
+        $categories = Category::all();
+        return view('books.create', compact('authors', 'categories'));
     }
-
+    
     public function store(BooksRequest $request)
     {   
         
@@ -30,7 +34,9 @@ class BookController extends Controller
     public function edit(Book $book)
     {
         // $book = Book::find($id);
-        return view('books.edit', compact('book'));
+        $authors = Author::all();
+        $categories = Category::all();
+        return view('books.edit', compact('book', 'authors', 'categories'));
     }
 
     public function update(BooksRequest $request, $id)
@@ -39,5 +45,17 @@ class BookController extends Controller
         $book->fill($request->all());
         $book->save();
         return redirect('/books');
+    }
+
+    public function show(Book $book)
+    {
+        return view('books.show', compact('book'));
+    }
+
+    public function destroy($id)
+    {
+        $book = Book::findOrFail($id);
+        $book->delete();
+        return redirect('/books'); 
     }
 }
