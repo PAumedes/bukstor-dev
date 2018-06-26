@@ -20,9 +20,9 @@ class Books extends Migration
             $table->integer('price')->unsigned();
             $table->text('description');
             $table->string('isbn');
-            // $table->integer('author_id')->unsigned()->index();
             $table->integer('author_id')->unsigned();
             $table->integer('category_id')->unsigned();
+            $table->string('cover')->default('default_book.jpg');
             $table->timestamps();
 
             $table->foreign('category_id')->references('id')->on('categories');

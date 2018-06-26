@@ -11,9 +11,4 @@ class Category extends Model
     // protected $table = 'categories';
     protected $fillable = ['name'];
     protected $dates = ['deleted_at'];
-
-    // public function book()
-    // {
-    //     return $this->hasMany(Book::class);
-    // }
 }

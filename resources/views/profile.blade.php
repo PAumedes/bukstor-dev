@@ -31,10 +31,9 @@
             <div class="profile-header-container">
                 <div class="profile-header-img">
                     <img class="rounded-circle" src="{{asset('/storage/profiles/'.$user->profile) }}" />
-                    {{-- @dd($user); --}}
                     <!-- badge -->
                     <div class="rank-label-container">
-                        <span class="label label-default rank-label">{{$user->name}}</span>
+                        <span class="label label-default rank-label">{{ Auth::user()->name }}</span>
                     </div>
                 </div>
             </div>

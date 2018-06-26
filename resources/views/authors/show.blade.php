@@ -14,8 +14,8 @@
         </tr>
         <tr>
         <td><a href="/authors/{{$author->id}}">{{$author->name}}</a></td> 
-        <td>{{$book->last_name}}</td>
-        <td><a href="/books/{{$book->id}}/edit">Editar</a></td>
+        <td>{{$author->last_name}}</td>
+        <td><a href="/authors/{{$author->id}}/edit">Editar</a></td>
         </tr>
     </table> 
 </body>

@@ -17,6 +17,7 @@ class Authors extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('last_name');
+            $table->string('profile')->default('default_author.jpg');
             $table->timestamps();
         });
     }

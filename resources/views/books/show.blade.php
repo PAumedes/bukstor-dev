@@ -4,31 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{asset('css/app.css')}}">
     <title>{{$book->name}} | {{config('app.name')}}</title>
 </head>
 <body>
-    <table>
-        <tr>
-        <th>Nombre</th>
-        <th>Costo</th>
-        <th>Precio</th>
-        <th>Descripción</th>
-        <th>ISBN</th>
-        <th>Autor</th>
-        <th>Categoría</th>
-        </tr>
-        <tr>
-        <td><a href="/books/{{$book->id}}">{{$book->name}}</a></td> 
-        {{-- <td>{{$book->name}}</td> <a href="/books/{{$book}}/edit"></a> --}}
-        <td>{{$book->cost}}</td>
-        <td>{{$book->price}}</td>
-        <td>{{$book->description}}</td>
-        <td>{{$book->isbn}}</td>
-        <td>{{$book->author_id}}</td>
-        <td>{{$book->category_id}}</td>
-        <td><a href="/books/{{$book->id}}/edit">Editar</a></td>
-        </tr>
-    </table>        
+
+    <div class="container">
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="/storage/books/{{$book->cover}}" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">{{$book->name}}</h5>
+                <p class="card-text">{{$book->description}}</p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Género: <a href="/categories/{{$book->category_id}}">{{$book->categories->name}}</a></li>
+                <li class="list-group-item">Autor: <a href="/authors/{{$book->author_id}}">{{$book->author->name}}</a></li>
+                <li class="list-group-item">ISBN: {{$book->isbn}}</li>
+            </ul>
+            <div class="card-body">
+                <a href="#" class="card-link">Comprar</a>
+                <a href="/books/{{$book->id}}/edit" class="card-link">Editar</a>
+            </div>
+        </div>
+    </div>
+       
 </body>
 </html>
 {{-- 
