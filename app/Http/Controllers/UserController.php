@@ -3,8 +3,36 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
 
 class UserController extends Controller
 {
-    //
+    public function profile()
+    {
+        $user = Auth::user();
+        return view('profile', compact('user', $user));
+    }
+
+    public function update_avatar(Request $request){
+
+        // dd($request->profile);
+ 
+        $request->validate([
+            'profile' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+ 
+        $user = Auth::user();
+ 
+        $avatarName = $user->id.'_avatar'.time().'.'.request()->profile->getClientOriginalExtension();
+ 
+        $request->profile->storeAs('profiles',$avatarName);
+ 
+        $user->profile = $avatarName;
+        $user->save();
+        
+
+        return back()
+            ->with('success','You have successfully upload image.');
+ 
+    }
 }

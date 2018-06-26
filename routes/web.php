@@ -18,7 +18,11 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('profile', 'UserController@profile');
+Route::post('profile', 'UserController@update_avatar');
 
-Route::resource('/authors', 'AuthorController');
-Route::resource('/categories', 'CategoryController');
-Route::resource('/books', 'BookController');
+Route::middleware('auth')->group(function() {
+    Route::resource('/authors', 'AuthorController');
+    Route::resource('/categories', 'CategoryController');
+    Route::resource('/books', 'BookController');
+});

@@ -11,6 +11,13 @@ use App\Http\Requests\BooksRequest;
 
 class BookController extends Controller
 {
+
+    public function __construct()
+    {
+
+        $this->middleware('admin')->only('create', 'edit');
+    }
+
     public function index()
     {
         $books = Book::all();

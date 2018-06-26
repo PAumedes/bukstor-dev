@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Author extends Model
 {
     use SoftDeletes;
+    // protected $table = 'authors';
     protected $fillable = ['name', 'last_name'];
     protected $dates = ['deleted_at'];
 
@@ -15,4 +16,9 @@ class Author extends Model
     {
         return $this->name . ' ' . $this->last_name;
     }
+
+    // public function book()
+    // {
+    //     return $this->hasMany(Book::class);
+    // }
 }
