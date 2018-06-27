@@ -1,20 +1,20 @@
 @extends('layouts.app')
- 
+
 @section('content')
-    <div class="container">
+    <div class="container" style="position: relative; z-index: 10;">
         <div class="row">
             @if ($message = Session::get('success'))
- 
+
                 <div class="alert alert-success alert-block">
- 
+
                     <button type="button" class="close" data-dismiss="alert">×</button>
- 
+
                     <strong>{{ $message }}</strong>
- 
+
                 </div>
- 
+
             @endif
- 
+
             @if (count($errors) > 0)
                 <div class="alert alert-danger">
                     <strong>Whoops!</strong> There were some problems with your input.<br><br>
@@ -27,7 +27,7 @@
             @endif
         </div>
         <div class="row justify-content-center">
- 
+
             <div class="profile-header-container">
                 <div class="profile-header-img">
                     <img class="rounded-circle" src="{{asset('/storage/profiles/'.$user->profile) }}" />
@@ -37,7 +37,7 @@
                     </div>
                 </div>
             </div>
- 
+
         </div>
         <div class="row justify-content-center">
             <form action="/profile" method="post" enctype="multipart/form-data">
