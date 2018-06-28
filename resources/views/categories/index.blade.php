@@ -7,13 +7,13 @@
     <title>Categorías</title>
 </head>
 <body>
-    <table>
+    <table class="table table-bordered">
     <tr>
       <th>Nombre</th>
     </tr>
     @foreach($categories as $category)
     <tr>
-    <td><a href="/categories/{{$category->id}}">{{$category->name}}</a></td> 
+    <td><a href="/categories/{{$category->id}}">{{$category->name}}</a></td>
     <td><a href="/categories/{{$category->id}}/edit">Editar</a></td>
     <td>
         <form action="/categories/{{ $category->id }}" method="post">

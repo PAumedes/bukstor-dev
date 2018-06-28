@@ -31,13 +31,13 @@ nav ul{
   float: right;
 }
 
-/*nav ul li{
+nav ul li{
   float: left;
-}*/
-/*nav ul li a{
+}
+nav ul li a{
   color: #000;
   padding: 0 30px;
-}*/
+}
 
 .my-container {
   text-align: center;
@@ -46,6 +46,7 @@ nav ul{
   position: relative;
   z-index: 10;
   color: #fff;
+  background-color: #000;
 }
 
 .my-container h1{
@@ -115,10 +116,6 @@ footer .contenedor{
 
 .menu li, ul{
   list-style: none;
-}
-
-.footer-m{
-  padding-top: 20px;
 }
 
 /* destacados */

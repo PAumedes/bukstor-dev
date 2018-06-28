@@ -27,6 +27,39 @@
                             </div>
                         </div>
 
+                        <div class="form-group row">
+                            <label class="col-md-4 col-form-label text-md-right">País</label>
+
+                            <div class="col-md-6">
+                              <select id="paises" name="paises" class="form-control{{ $errors->has('paises') ? ' is-invalid' : '' }}">
+                                <option value="">ELEGÍ PAÍS</option>
+                              </select>
+
+                                @if ($errors->has('paises'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('paises') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group row" id="prov-container"style="display: none;">
+                            <label class="col-md-4 col-form-label text-md-right">Provincia</label>
+
+                            <div class="col-md-6">
+                              <select id="prov" name="prov" class="form-control{{ $errors->has('prov') ? ' is-invalid' : '' }}">
+                                <option value="">ELEGÍ PROVINCIA</option>
+                              </select>
+
+                                @if ($errors->has('prov'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('prov') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+
 
                         <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
@@ -77,4 +110,5 @@
         </div>
     </div>
 </div>
+<script src="/js/ajaxPaises.js"></script>
 @endsection
