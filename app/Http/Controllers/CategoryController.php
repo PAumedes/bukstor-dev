@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Category;
 use Validator;
 use App\Http\Requests\CategoriesRequest;
+use DB;
+use App\Book;
 
 class CategoryController extends Controller
 {
@@ -44,7 +46,8 @@ class CategoryController extends Controller
 
     public function show(Category $category)
     {
-        return view('categories.show', compact('category'));
+        $books = Book::with('categories')->get();
+        return view('categories.show', compact('books', $books));
     }
 
     public function destroy($id)

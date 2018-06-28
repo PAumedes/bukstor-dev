@@ -10,11 +10,15 @@
     <table>
         <tr>
         <th>Nombre</th>
+        <th>Editar</th>
         </tr>
         <tr>
-        <td><a href="/categories/{{$category->id}}">{{$category->name}}</a></td> 
-        <td><a href="/categories/{{$category->id}}/edit">Editar</a></td>
+            {{-- @dd($books); --}}
+            @foreach($books as $book)
+        <td><a href="/books/{{$book->id}}">{{$book->name}}</a></td> 
+        <td><a href="/books/{{$book->id}}/edit">Editar</a></td>
         </tr>
+            @endforeach
     </table> 
 </body>
 </html>

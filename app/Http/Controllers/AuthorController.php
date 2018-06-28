@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Author;
+use App\Book;
 use App\Http\Requests\AuthorsRequest;
 use Validator;
 
@@ -43,7 +44,8 @@ class AuthorController extends Controller
 
     public function show(Author $author)
     {
-        return view('authors.show', compact('author'));
+        $books = Book::with('author')->get();
+        return view('authors.show', compact('books', $books));
     }
 
     public function destroy($id)

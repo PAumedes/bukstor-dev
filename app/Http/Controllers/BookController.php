@@ -20,7 +20,8 @@ class BookController extends Controller
 
     public function index()
     {
-        $books = Book::all();
+        // $books = Book::all();
+        $books = Book::paginate(6);
         return view('books.index', compact('books'));
     }
     
@@ -65,4 +66,5 @@ class BookController extends Controller
         $book->delete();
         return redirect('/books'); 
     }
+
 }

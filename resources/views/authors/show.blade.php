@@ -12,11 +12,13 @@
         <th>Nombre</th>
         <th>Apellido</th>
         </tr>
+        @foreach ($books as $book)
         <tr>
-        <td><a href="/authors/{{$author->id}}">{{$author->name}}</a></td> 
-        <td>{{$author->last_name}}</td>
-        <td><a href="/authors/{{$author->id}}/edit">Editar</a></td>
+        <td><a href="/books/{{$book->id}}">{{$book->name}}</a></td> 
+        <td>{{$book->name}}</td>
+        <td><a href="/books/{{$book->id}}/edit">Editar</a></td>
         </tr>
+        @endforeach
     </table> 
 </body>
 </html>

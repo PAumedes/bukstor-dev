@@ -11,16 +11,6 @@ class Book extends Model
     protected $fillable = ['name', 'cost', 'price', 'description', 'isbn', 'author_id', 'category_id'];
     protected $dates = ['deleted_at'];
 
-    // public function authors()
-    // {
-    //     return $this->belongsTo('App\Author', 'author_id');
-    // }
-
-    // public function categories()
-    // {
-    //     return $this->belongsTo('App\Category', 'category_id');
-    // }
-
     public function author()
     {
         return $this->belongsTo(Author::class);
@@ -29,5 +19,10 @@ class Book extends Model
     public function categories()
     {
         return $this->belongsTo(Category::class, 'category_id')->withDefault();
+    }
+
+    public function scopeSearch($query, $s)
+    {
+        return $query->where('name', 'like', '%' .$s. '%');
     }
 }

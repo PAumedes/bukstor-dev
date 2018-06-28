@@ -1,53 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Libros | {{config('app.name')}}</title>
-</head>
-<body>
-    <table>
-    <tr>
-      <th>Nombre</th>
-      <th>Costo</th>
-      <th>Precio</th>
-      <th>Descripción</th>
-      <th>ISBN</th>
-      <th>Autor</th>
-      <th>Nombre del Autor</th>
-      <th>Categoría</th>
-      <th>Nombre de la Categoría</th>
-      <th>Editar</th>
-      <th>Borrar</th>
-    </tr>
-    @foreach($books as $book)
-    <tr>
-      
-      <td><a href="/books/{{$book->id}}">{{$book->name}}</a></td> 
-      {{-- <td>{{$book->name}}</td> <a href="/books/{{$book}}/edit"></a> --}}
-      <td>{{$book->cost}}</td>
-      <td>{{$book->price}}</td>
-      <td>{{$book->description}}</td>
-      <td>{{$book->isbn}}</td>
-      <td>{{$book->author_id}}</td>
-      <td>{{$book->author->name}}</td>
-      <td>{{$book->category_id}}</td>
-      @if ($book->categories->name != null)
-      <td>{{$book->categories->name}}</td>
-      @else
-      <td>Sin categoría</td>
-      @endif
-      <td><a href="/books/{{$book->id}}/edit">Editar</a></td>
-      <td>
-        <form action="/books/{{ $book->id }}" method="post">
-          @csrf
-          {{ method_field('DELETE') }}
-          <button class="btn btn-default" type="submit">Borrar</button>
+@extends('layouts.app')
+@section('content')
+
+    <div class="col-md-6">
+        <form action="/books/search" method="get" class="form-inline">
+            <div class="form-group">
+                <input type="text" class="form-control" name="s" placeholder="Buscar">
+            </div>
+            <div class="form group">
+                <buttton class="btn btn-primary" type="submit">Buscar</buttton>
+            </div>
         </form>
-      </td>
-    </tr>
-    @endforeach
-  </table>
-</body>
-</html>
+    </div>
+
+    <div class="container card-container" >
+        @foreach($books as $book)
+            <div class="card" style="width: 18rem;">
+            <a href="/books/{{$book->id}}"><img class="card-img-top" src="/storage/books/{{$book->cover}}" alt="Card image cap"></a>
+            <div class="card-body">
+                <h5 class="card-title">{{$book->name}}</h5>
+                <p class="card-text">{{$book->description}}</p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Género: <a href="/categories/{{$book->category_id}}">{{$book->categories->name}}</a></li>
+                <li class="list-group-item">Autor: <a href="/authors/{{$book->author_id}}">{{$book->author->name}}</a></li>
+                <li class="list-group-item">ISBN: {{$book->isbn}}</li>
+            </ul>
+            <div class="card-body">
+                <a href="#" class="card-link">Comprar</a>
+                <a href="/books/{{$book->id}}/edit" class="card-link">Editar</a>
+                <form action="/books/{{ $book->id }}" method="post">
+                    @csrf
+                    {{ method_field('DELETE') }}
+                    <button class="btn btn-default" type="submit">Borrar</button>
+                </form>
+            </div>
+            </div>
+        @endforeach
+    </div>
+    {{$books->links()}}
+@endsection

@@ -27,3 +27,5 @@ Route::middleware('auth')->group(function() {
     Route::resource('/categories', 'CategoryController');
     Route::resource('/books', 'BookController');
 });
+
+Route::get('/books/search', 'LiveSearch@index');

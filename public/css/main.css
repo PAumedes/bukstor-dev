@@ -10,15 +10,9 @@ a{
 }
 
 body{
-  /* background: url('../images/bg.svg') no-repeat; */
   padding-bottom: 500px;
 }
 
-#jumbo{
-  background: url('../images/bg.svg') no-repeat;
-  /* position: absolute; */
-
-}
 
 .top-menu{
   display: flex;
@@ -63,6 +57,37 @@ nav ul li a{
   line-height: 1.4em;
 }
 
+/* INDEX */
+.librosDestacados{
+  padding-bottom: 20px;
+}
+
+.librosDestacados h2{
+  padding-bottom: 20px;
+}
+
+.destacados{
+  display: flex;
+  justify-content: space-between;
+}
+
+.list-group-item a{
+  text-decoration: none;
+  color: #000;
+}
+
+/* CONTAINER */
+
+.card-container{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+
+.card-container .card{
+  margin-bottom: 20px;
+}
 
 /* FOOTER */
 .foot{
@@ -80,6 +105,8 @@ footer .contenedor{
   width: 100%;
   text-align: center;
   font-size: 28px;
+  display: flex;
+  justify-content: space-around;
 }
 .social a{
   color: #89bdd3;
