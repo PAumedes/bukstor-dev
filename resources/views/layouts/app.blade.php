@@ -23,6 +23,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href=" " rel="stylesheet" id="cssTheme">
+
 </head>
 <body>
     <div id="app">
@@ -99,22 +100,24 @@
 
           </footer>
           </div>
-
           <script>
-            window.onload = function () {
-              var btnChangeTheme = document.querySelector('#changeTheme');
-              var linkCssTheme = document.querySelector('#cssTheme');
-              btnChangeTheme.onclick = function () {
-                linkCssTheme.setAttribute('href', '/css/theme.css');
-              }
+          window.addEventListener('load', function () {
+            var btnChangeTheme = document.querySelector('#changeTheme');
+            var linkCssTheme = document.querySelector('#cssTheme');
 
-              var btnBackTheme = document.querySelector('#backTheme');
+            btnChangeTheme.addEventListener('click', function () {
+              linkCssTheme.setAttribute('href', '/css/theme.css');
+            })
 
-              btnBackTheme.onclick = function(){
-                linkCssTheme.setAttribute('href', '');
-              }
+            var btnBackTheme = document.querySelector('#backTheme');
 
-            }
+            btnChangeTheme.addEventListener('click', function(){
+              linkCssTheme.setAttribute('href', '');
+            })
+          })
           </script>
+
+          @yield('scripts')
+
       </body>
       </html>

@@ -110,5 +110,8 @@
         </div>
     </div>
 </div>
-<script src="/js/ajaxPaises.js"></script>
+@endsection
+
+@section('scripts')
+  <script src="/js/ajaxPaises.js"></script>
 @endsection

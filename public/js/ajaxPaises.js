@@ -1,4 +1,4 @@
-window.onload = function () {
+window.addEventListener('load', function () {
   var selectPaises = document.querySelector('#paises')
   var selectProv = document.querySelector('#prov')
   var provContainer = document.querySelector('#prov-container')
@@ -13,6 +13,7 @@ window.onload = function () {
        })
        .then(function(data){
          data = data.contenido;
+         console.log(data);
          callback(data)
        })
        .catch(function(error){
@@ -51,4 +52,4 @@ window.onload = function () {
     };
   }
 
-}
+})
