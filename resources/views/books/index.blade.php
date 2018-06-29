@@ -27,7 +27,8 @@
         @foreach($books as $book)
             <div class="card" style="width: 18rem;">
             <a data-toggle="modal" href="#myModal" id="acard" data-book-name="{{$book->name}}">
-                <img class="card-img-top" src="/storage/books/{{$book->cover}}" alt="Card image cap" id="imgcard"  data-book-id="{{$book->id}}">
+                <img class="card-img-top" src="/images/books/{{$book->cover}}" alt="Card image cap" id="imgcard"  data-book-id="{{$book->id}}">
+                {{-- <img class="card-img-top" src="/storage/books/{{$book->cover}}" alt="Card image cap" id="imgcard"  data-book-id="{{$book->id}}"> --}}
             </a>
             <div class="card-body">
                 <a href="/books/{{$book->id}}"><h5 class="card-title">{{$book->name}}</h5></a>
@@ -71,7 +72,7 @@
     </div>
   </div> 
 </div>
-@endsection
+
 
 
 
