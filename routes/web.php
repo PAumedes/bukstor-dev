@@ -22,10 +22,18 @@ Route::get('/home', 'HomeController@home')->name('home');
 Route::get('profile', 'UserController@profile');
 Route::post('profile', 'UserController@update_avatar');
 
+Route::get('/books/search/', ['uses' => 'BookController@search', 'as' => 'books.search']);
 Route::middleware('auth')->group(function() {
     Route::resource('/authors', 'AuthorController');
     Route::resource('/categories', 'CategoryController');
     Route::resource('/books', 'BookController');
 });
 
-Route::get('/books/search', 'LiveSearch@index');
+// Route::get('/books/search/{$s}', 'BookControllerh@search');
+// Route::get('/books/search', 'BookController@search');
+// Route::get('books/search/', function () {
+//     return view('books.index');
+// });
+// Route::get('/lalala', function () {
+//     return view('books/index');
+// });

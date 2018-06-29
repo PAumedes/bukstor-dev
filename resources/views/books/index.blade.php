@@ -11,8 +11,19 @@
             </div>
         </form>
     </div> --}}
+    <div class="container">
+        <form action="{{ route('books.search') }}" method="get">
+            <div class="form-group">
+                <input type="text" class="form-control" name="s" placeholder="Buscar" value="{{ isset($s) ? $s : ''}}">
+            </div>
+            <div class="form-group">
+                <button class="btn btn-success" type="submit">Search</button>
+            </div>
+        </form>
+    </div>
 
     <div class="container card-container" >
+        {{-- @dd($books); --}}
         @foreach($books as $book)
             <div class="card" style="width: 18rem;">
             <a data-toggle="modal" href="#myModal" id="acard" data-book-name="{{$book->name}}">

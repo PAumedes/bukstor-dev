@@ -66,5 +66,13 @@ class BookController extends Controller
         $book->delete();
         return redirect('/books'); 
     }
+    
+    public function search(Request $request)
+    {
+        $s = $request->input('s');
+        $books = Book::search($s)->get();
+        // dd($books);
+        return view('books.search', compact('books', 's'));
+    }
 
 }
