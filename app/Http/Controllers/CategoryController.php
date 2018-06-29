@@ -46,7 +46,9 @@ class CategoryController extends Controller
 
     public function show(Category $category)
     {
-        $books = Book::with('categories')->get();
+        $books = Book::where('category_id', '=', $category->id)->get();
+        // $books = Book::with('categories')->get();
+        // dd($books);
         return view('categories.show', compact('books', $books));
     }
 

@@ -22,6 +22,9 @@ Route::get('/home', 'HomeController@home')->name('home');
 Route::get('profile', 'UserController@profile');
 Route::post('profile', 'UserController@update_avatar');
 
+
+Route::get('/books/livesearch','LiveSearch@index');
+Route::get('/books/livesearchresults','LiveSearch@search');
 Route::get('/books/search/', ['uses' => 'BookController@search', 'as' => 'books.search']);
 Route::middleware('auth')->group(function() {
     Route::resource('/authors', 'AuthorController');
@@ -37,3 +40,4 @@ Route::middleware('auth')->group(function() {
 // Route::get('/lalala', function () {
 //     return view('books/index');
 // });
+

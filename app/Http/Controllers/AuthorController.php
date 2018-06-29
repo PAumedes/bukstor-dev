@@ -44,7 +44,9 @@ class AuthorController extends Controller
 
     public function show(Author $author)
     {
-        $books = Book::with('author')->get();
+        // $books = Book::with('author')->get();
+        // return view('authors.show', compact('books', $books));
+        $books = Book::where('author_id', '=', $author->id)->get();
         return view('authors.show', compact('books', $books));
     }
 

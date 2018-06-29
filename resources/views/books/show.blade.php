@@ -1,13 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="{{asset('css/app.css')}}">
-    <title>{{$book->name}} | {{config('app.name')}}</title>
-</head>
-<body>
+@extends('layouts.app')
+@section('content')
 
     <div class="container">
         <div class="card" style="width: 18rem;">
@@ -23,13 +15,14 @@
             </ul>
             <div class="card-body">
                 <a href="#" class="card-link">Comprar</a>
+                @if (Auth::user()->admin == 1)
                 <a href="/books/{{$book->id}}/edit" class="card-link">Editar</a>
+                @else
+                @endif
             </div>
         </div>
     </div>
-       
-</body>
-</html>
+@endsection
 {{-- 
                     @auth
                         <a href="{{ url('/home') }}">Home</a>

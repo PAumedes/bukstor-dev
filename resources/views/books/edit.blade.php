@@ -1,10 +1,5 @@
-<!DOCTYPE html>
-<html>
- <head>
-   <meta charset="utf-8">
-   <title>Formulario para editar libros | {{config('app.name')}}</title>
- </head>
- <body>
+@extends('layouts.app')
+@section('content')
 
     <form action="/books/{{$book->id}}" method="post">
         @csrf
@@ -47,8 +42,7 @@
         </div>
         <input type="submit" value="Editar libro"/>
     </form>
-</body>
-</html>
+@endsection
 @if (count($errors))
  <ul>
    @foreach ($errors->all() as $error)
