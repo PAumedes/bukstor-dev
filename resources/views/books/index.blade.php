@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title', 'Libros')
 @section('content')
 
     {{-- <div class="col-md-6">
@@ -57,7 +58,7 @@
 <!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
-    
+
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
@@ -66,11 +67,11 @@
         </div>
         <div class="modal-body">
             <img src="" alt="" id="modalimg" style="width:100%;">
-        </div>        
+        </div>
       </div>
-      
+
     </div>
-  </div> 
+  </div>
 </div>
 
 

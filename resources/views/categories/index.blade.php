@@ -1,10 +1,11 @@
 @extends('layouts.app')
+@section('title', 'Categorías')
 @section('content')
     <table class="table table-bordered">
     <tr>
       <th>Nombre</th>
     </tr>
-    
+
     @foreach($categories as $category)
     <tr>
     <td><a href="/categories/{{$category->id}}">{{$category->name}}</a></td>

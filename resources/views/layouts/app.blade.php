@@ -15,6 +15,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/carousel.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
@@ -24,15 +25,17 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href=" " rel="stylesheet" id="cssTheme">
 
+
+
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
+        <nav id="nav" class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                   <a href="/" id="logo"><i class="fas fa-book"></i>Bukstor</a>
                 </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                <button id="burger" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
@@ -45,13 +48,13 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
-                          <li class="nav-item"><a class="nav-link" href="/books">Books</a></li>
+                          <li class="nav-item"><a id="menu" class="nav-link" href="/books">Books</a></li>
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a id="menu" class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                <a id="menu" class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                             </li>
                         @else
                             <li class="nav-item dropdown">
@@ -82,7 +85,7 @@
           @yield('content')
 
           <footer class="foot">
-            <div class="row" style="background-color: grey;">
+            <div class="row">
           <div class="container d-flex justify-content-between">
             <div class="col-12">
               <div class="footer-m">
@@ -118,6 +121,7 @@
           </script>
 
           @yield('scripts')
+
 
       </body>
       </html>

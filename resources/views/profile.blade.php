@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title', 'Perfil')
 @section('content')
     <div class="container" style="position: relative; z-index: 10;">
         <div class="row">
@@ -31,7 +31,7 @@
             <div class="profile-header-container">
                 <div class="profile-header-img">
                     <img class="rounded-circle" src="/images/profiles/{{$user->profile}}" />
-                    
+
                     <!-- badge -->
                     <div class="rank-label-container">
                         <span class="label label-default rank-label">{{ Auth::user()->name }}</span>

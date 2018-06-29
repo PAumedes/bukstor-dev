@@ -4,7 +4,7 @@
 
 @section('content')
   <div class="index">
-    <!-- DESTACADOS -->
+    <!-- CAROUSEL -->
 
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
@@ -90,6 +90,9 @@
         </div>
     </section>
     </div>
+
+
+
 
   </div>
 @endsection

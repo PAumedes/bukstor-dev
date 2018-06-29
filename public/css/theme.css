@@ -1,3 +1,18 @@
 body {
-  background: pink;
+  background: grey;
+}
+footer .row{
+  background-color: #000;
+}
+.texto{
+  color: #fff;
+}
+#nav{
+  background-color: #000;
+}
+#menu{
+  color: #fff;
+}
+#burger{
+  background-color: #fff;
 }
