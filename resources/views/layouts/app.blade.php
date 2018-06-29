@@ -111,7 +111,7 @@
 
             var btnBackTheme = document.querySelector('#backTheme');
 
-            btnChangeTheme.addEventListener('click', function(){
+            btnBackTheme.addEventListener('click', function(){
               linkCssTheme.setAttribute('href', '');
             })
           })

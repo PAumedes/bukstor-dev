@@ -1,5 +1,5 @@
 window.addEventListener('load', function () {
-  var selectPaises = document.querySelector('#paises')
+  var selectPaises = document.querySelector('#nationality')
   var selectProv = document.querySelector('#prov')
   var provContainer = document.querySelector('#prov-container')
 
