@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 
-    <div class="col-md-6">
+    {{-- <div class="col-md-6">
         <form action="/books/search" method="get" class="form-inline">
             <div class="form-group">
                 <input type="text" class="form-control" name="s" placeholder="Buscar">
@@ -10,14 +10,16 @@
                 <buttton class="btn btn-primary" type="submit">Buscar</buttton>
             </div>
         </form>
-    </div>
+    </div> --}}
 
     <div class="container card-container" >
         @foreach($books as $book)
             <div class="card" style="width: 18rem;">
-            <a href="/books/{{$book->id}}"><img class="card-img-top" src="/storage/books/{{$book->cover}}" alt="Card image cap"></a>
+            <a data-toggle="modal" href="#myModal" id="acard" data-book-name="{{$book->name}}">
+                <img class="card-img-top" src="/storage/books/{{$book->cover}}" alt="Card image cap" id="imgcard"  data-book-id="{{$book->id}}">
+            </a>
             <div class="card-body">
-                <h5 class="card-title">{{$book->name}}</h5>
+                <a href="/books/{{$book->id}}"><h5 class="card-title">{{$book->name}}</h5></a>
                 <p class="card-text">{{$book->description}}</p>
             </div>
             <ul class="list-group list-group-flush">
@@ -39,3 +41,39 @@
     </div>
     {{$books->links()}}
 @endsection
+
+<!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title"></h5>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+            <img src="" alt="" id="modalimg" style="width:100%;">
+        </div>        
+      </div>
+      
+    </div>
+  </div> 
+</div>
+
+
+
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $("[data-book-name]").click(function()
+        {
+            var theTitle = $(this).attr('data-book-name')
+            var theImg = $("#imgcard", this).attr('src')
+            $("#modalimg").attr('src', theImg);
+            $(".modal-title").text(theTitle);
+            $("#myModal").modal();
+        });
+    });
+
+</script>

@@ -87,8 +87,8 @@
             <div class="col-12">
               <div class="footer-m">
               <ul class="social">
-                <button type="button" class="btn btn-primary" id="changeTheme">Cambiar Tema</button>
-                <button type="button" class="btn btn-primary" id="backTheme">Tema Anterior</button>
+                  <button type="button" class="btn btn-primary" id="backTheme">Tema Original</button>
+                <button type="button" class="btn btn-primary" id="changeTheme">Tema Alternativo</button>
                 <li><a href="#"><i class="fab fa-facebook"></i></a></li>
                 <li><a href="#"><i class="fab fa-twitter"></i></a></li>
                 <li><a href="#"><i class="fab fa-instagram"></i></a></li>
