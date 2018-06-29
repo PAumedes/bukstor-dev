@@ -37,7 +37,11 @@
             <label class="col-md-4 col-form-label text-md-right" for="category">Categoría</label>
             <select name="category_id" id="categories">
                 @foreach ($categories as $category)
+                @if ($category->id == $book->category_id)
+                <option value="{{$category->id}}" selected>{{$category->name}}</option>
+                @else
                 <option value="{{$category->id}}">{{$category->name}}</option>
+                @endif
                 @endforeach
             </select>
         </div>
