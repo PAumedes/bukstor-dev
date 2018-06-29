@@ -41,7 +41,7 @@
 
     <section class="destacados">
       <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="/storage/books/{{$book->cover}}" alt="Card image cap">
+            <img class="card-img-top" src="/images/books/{{$book->cover}}" alt="Card image cap">
             <div class="card-body">
                 <h5 class="card-title">{{$book->name}}</h5>
                 <p class="card-text">{{$book->description}}</p>
@@ -57,7 +57,7 @@
             </div>
         </div>
         <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="/storage/books/{{$book->cover}}" alt="Card image cap">
+            <img class="card-img-top" src="/images/books/{{$book->cover}}" alt="Card image cap">
             <div class="card-body">
                 <h5 class="card-title">{{$book->name}}</h5>
                 <p class="card-text">{{$book->description}}</p>
@@ -73,7 +73,7 @@
             </div>
         </div>
         <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="/storage/books/{{$book->cover}}" alt="Card image cap">
+            <img class="card-img-top" src="/images/books/{{$book->cover}}" alt="Card image cap">
             <div class="card-body">
                 <h5 class="card-title">{{$book->name}}</h5>
                 <p class="card-text">{{$book->description}}</p>

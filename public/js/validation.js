@@ -7,12 +7,6 @@ window.addEventListener('load', function () {
   form.addEventListener('submit', function(e) {
     e.preventDefault()
 
-    // for (let index = 0; index < elements.length; index++) {
-    //     if (elements[index].type != "submit" && elements[index].type != "button") {
-    //         console.log(elements[index].value);
-    //     }
-    // }
-
     if (form.querySelector('[name="name"]').value === '' ) {
         form.querySelector('#errorName').innerText = "Por favor, introduce un nombre";
     } else {
@@ -54,6 +48,6 @@ window.addEventListener('load', function () {
 
   })
 }
-formData();
 });
+formData();
 
